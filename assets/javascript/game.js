@@ -59,24 +59,23 @@ let numOfWrong = 0;
 let numOfTimeout = 0;
 
 function loadQuestion (array) {
-    question = $("<div>")
+    question = $("<div>");
     question.attr ('class', "question");
     question.html (array.question);
-    console.log (question);
 
-    ans1 = $("<div>")
+    ans1 = $("<div>");
     ans1.attr ('class', "answer");
     ans1.html (array.answer1);
 
-    ans2 = $("<div>")
+    ans2 = $("<div>");
     ans2.attr ('class', "answer");
     ans2.html (array.answer2);
 
-    ans3 = $("<div>")
+    ans3 = $("<div>");
     ans3.attr ('class', "answer");
     ans3.html (array.answer3);
 
-    ans4 = $("<div>")
+    ans4 = $("<div>");
     ans4.attr ('class', "answer");
     ans4.html (array.answer4);
 
@@ -84,8 +83,6 @@ function loadQuestion (array) {
     appendQuestion (display);
     $("#timer").text("Time Remaining: " + countDown + " Seconds.");
     timerId = setInterval("countDownTimer()", 1000);
-    console.log (questionNumber);
-    // setTimeout("timeout();", 30000);
     $(".answer").click(checkAnswer);
 };
 
@@ -96,30 +93,22 @@ function countDownTimer () {
     if (countDown === 0) {
         clearInterval(timerId);
         timeout ();
-    }
+    };
 };
 
 function timeout () {
-    $("#timer").remove();
-    $("#timerDiv").append("<div id='timer'></div>")
-    $("#question").remove();
-    $("#questionDiv").append("<div id='question'></div>");
+    timerQuestionReset();
     $("#message").append("Time Out! The Correct Answer is:", triviaQuestions[questionNumber].correct);
     setTimeout("nextQuestion()", 5000);
     countDown = 30;
     numOfTimeout++;
-}
+};
 
 function checkAnswer(e) {
     let clickedDiv = e.currentTarget;
-    console.log (clickedDiv.innerText)
 
     if (clickedDiv.innerText === triviaQuestions[questionNumber].correct) {
-        console.log ("correct!")
-        $("#timer").remove();
-        $("#timerDiv").append("<div id='timer'></div>")
-        $("#question").remove();
-        $("#questionDiv").append("<div id='question'></div>");
+        timerQuestionReset();
         $("#message").append("Correct!");
         clearInterval(timerId);
         setTimeout("nextQuestion()", 5000);
@@ -127,33 +116,27 @@ function checkAnswer(e) {
         numOfCorrect++;
 
     } else {
-        console.log ("false!")
-        $("#timer").remove();
-        $("#timerDiv").append("<div id='timer'></div>")
-        $("#question").remove();
-        $("#questionDiv").append("<div id='question'></div>");
+        timerQuestionReset();
         $("#message").append("Wrong! The Correct Answer is:", triviaQuestions[questionNumber].correct);
         clearInterval(timerId);
         setTimeout("nextQuestion()", 5000);
         countDown = 30;
         numOfWrong++;
-    }
-}
+    };
+};
 
 function nextQuestion () {
     $("#message").remove();
     $("#messageDiv").append("<div id='message'></div>");
-    console.log (questionNumber);
-    console.log (triviaQuestions.length);
 
     if (questionNumber === (triviaQuestions.length-1)) {
         gameEnd ();
     } else {
     questionNumber++;
-    let array = triviaQuestions[questionNumber]
+    let array = triviaQuestions[questionNumber];
     loadQuestion (array);
-    }
-}
+    };
+};
 
 function appendQuestion (display) {
     display.append(question);
@@ -161,36 +144,36 @@ function appendQuestion (display) {
     display.append(ans2);
     display.append(ans3);
     display.append(ans4);
-}
+};
 
 function start () {
     let array = triviaQuestions[questionNumber]
     loadQuestion (array);
-    console.log (array);
     $("#start").remove();
-
-}
+};
 
 function gameEnd () {
-    //timerQuestionReset();
-
     $("#message").append("<div class='final'>Number of Correct: " + numOfCorrect + "</div>");
     $("#message").append("<div class='final'>Number of Wrong: " + numOfWrong + "</div>");
     $("#message").append("<div class='final'>Number of Timeout: " + numOfTimeout + "</div>");
     $("#restartDiv").append("<button id='restart' onClick='reset();'>Restart</button>");
-}
+};
 
 function timerQuestionReset () {
     $("#timer").remove();
-    $("#timerDiv").append("<div id='timer'></div>")
+    $("#timerDiv").append("<div id='timer'></div>");
     $("#question").remove();
     $("#questionDiv").append("<div id='question'></div>");
-}
+};
 
 function reset () {
     $("#message").remove();
     $("#messageDiv").append("<div id='message'></div>");
+    $("#restart").remove();
     questionNumber = 0;
+    numOfCorrect = 0;
+    numOfWrong = 0;
+    numOfTimeout = 0;
     let array = triviaQuestions[questionNumber];
     loadQuestion (array);
-}
+};
