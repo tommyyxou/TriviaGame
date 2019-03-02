@@ -4,9 +4,9 @@ body{
 
 .container {
     margin: auto;
-    margin-top: 50px; 
+    margin-top: 10px; 
     width: 90%;
-    height: 500px; 
+    height: 420px; 
     border: ridge 10px greenyellow;
     font-family: 'Space Mono', monospace;
     font-size: 20px;
@@ -73,6 +73,6 @@ img{
     width: 1920px;
     height: auto;
     position: absolute;
-    top: 20px;
+    top: -105px;
     z-index: -1;
 }
