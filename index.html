@@ -7,25 +7,48 @@
     <title>Trivia Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
-
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 </head>
-<body>
-    <div id="titleDiv">
-        <div id="title">Trivia Game</div>
+<body onload="initiateDifTimer ();">
+    <div class="container">
+        <div class="parent" id="titleDiv">
+            <div class="child" id="title">Automotive Trivia Game</div>
+        </div>
+        <div class="parent" id="difficultyDiv">
+            <div class="child" id="difficulty">
+                <div class="difficulty button1">Easy</div>
+                <div class="difficulty button1">Normal</div>
+                <div class="difficulty button1">Hard</div>
+                <div class="first">Please Select Difficulty Level: <span id="difficultySpan">Easy</span></div>
+            </div>
+        </div>
+        <div class="parent" id="timerSettingDiv">
+                <div class="child" id="timerSetting">
+                    <div class="timerSetting button1">10</div>
+                    <div class="timerSetting button1">20</div>
+                    <div class="timerSetting button1">30</div>
+                    <div class="first">Please Select Time Span For Each Questions: <span id="timerSettingSpan">30</span> seconds</div>
+                </div>
+            </div>
+        <div class="parent" id="startDiv">
+            <div class="child button2" id="start" onclick="start();">Start</div>
+        </div>
+
+        <div class="parent" id="timerDiv">
+            <div class="child" id="timer"></div>
+        </div>
+        <div class="parent" id="questionDiv">
+            <div class="child" id="question"></div>
+        </div>
+        <div class="parent" id="messageDiv">
+            <div class="child" id="message"></div>
+        </div>
+        <div class="parent" id="imageDiv">
+            <div class="child" id="image"></div>
+        </div>
+        <div class="parent" id="restartDiv"></div>
     </div>
-    <button id="start" onclick="start();">Start</button>
-    <div id="timerDiv">
-        <div id="timer"></div>
-    </div>
-    <div id="questionDiv">
-        <div id="question"></div>
-    </div>
-    <div id="messageDiv">
-        <div id="message"></div>
-    </div>
-    <div id="imageDiv">
-        <div id="image"></div>
-    </div>
-    <div id="restartDiv"></div>
+    <img id="footer" src="./assets/images/bottom.jpg" alt="Mclaren P1">
 </body>
 </html>

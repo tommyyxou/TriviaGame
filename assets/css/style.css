@@ -1,0 +1,78 @@
+body{
+    background-color: black;
+}
+
+.container {
+    margin: auto;
+    margin-top: 50px; 
+    width: 90%;
+    height: 500px; 
+    border: ridge 10px greenyellow;
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    background-color: white;
+}
+
+#title {
+    font-size: 50px;
+}
+
+.parent{
+    width: 100%;
+    /* height: 50px; */
+    display: table;
+    text-align: center;
+}
+.child{
+
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.button1 {
+    width: 33.33333%;
+    float: left;
+}
+.button1:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.button2 {
+    width: 300px;
+}
+
+.button2:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.answer {
+    width: 50%;
+    float: left;
+}
+
+.answer:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.first {
+    clear: both;
+}
+
+img{
+    height: 300px;
+    width: auto;
+}
+
+#footer {
+    width: 1920px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+}
